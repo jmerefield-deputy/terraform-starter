@@ -1,3 +1,6 @@
+provider "aws" {
+  region = "ap-southeast-2"
+}
 # This resource here is to show you how plan policies work.
 
 resource "random_password" "secret" {
@@ -6,15 +9,15 @@ resource "random_password" "secret" {
 }
 
 resource "aws_s3_bucket" "my_bucket" {
-      bucket = "my-unique-terraform-s3-bucket-name-spaccelift"
-      acl    = "private"
+  bucket = "my-unique-terraform-s3-bucket-name-spaccelift"
+  acl    = "private"
 
-      tags = {
-        Environment = "Dev"
-        Project     = "MyApplication"
-      }
+  tags = {
+    Environment = "Dev"
+    Project     = "MyApplication"
+  }
 
-      versioning {
-        enabled = true
-      }
+  versioning {
+    enabled = true
+  }
 }
